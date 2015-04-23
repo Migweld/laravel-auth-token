@@ -59,7 +59,7 @@ class AuthTokenController extends Controller {
       throw new NotAuthorizedException();
     }
 
-    return Response::json($user);
+    return Response::json($user->load('usertypes'));
   }
 
   public function store() {
