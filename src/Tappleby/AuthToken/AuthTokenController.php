@@ -88,7 +88,7 @@ class AuthTokenController extends Controller {
 	  $serializedToken = $this->driver->getProvider()->serializeToken($token);
 
 
-	  return Response::json(array('token' => $serializedToken, 'user' => $user->toArray()));
+	  return Response::json(array('token' => $serializedToken, 'user' => $user->load('usernames')->toArray()));
   }
 
   public function destroy() {
